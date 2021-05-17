@@ -40,7 +40,7 @@ const ViewContainer: React.FC<{
                             </Box>
                             <Box>
                                 <Title>Salary</Title>
-                                <Typography>{salary}</Typography>
+                                <Typography>{salary} $</Typography>
                             </Box>
                         </Card>
                     </ModalContent>

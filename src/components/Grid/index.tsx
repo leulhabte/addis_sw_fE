@@ -6,7 +6,7 @@ import { ReactComponent as Oval } from "../../assets/oval.svg";
 import { Button } from "../Employee/styles";
 import { EMP } from '../../constants';
 
-export default function GridContainer() {
+export default function GridContainer(): JSX.Element {
     const state = useSelector<initialState, initialState>((state) => state)
     const dispatch = useDispatch()
     return (
