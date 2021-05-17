@@ -47,7 +47,7 @@ export const removeEmployee = async (id: ActionTypes): Promise<IData> =>{
 
     const res = await fetch(`/employee/remove?id=${id.payload}`, requestOptions)
 
-    if(res.status === 201){
+    if(res.status === 200){
         return res.json()
     }
     

@@ -27,7 +27,7 @@ const DialogContainer:React.FC<{
             <ModalShadow onClick={close} />
             <Modal>
                 <ModalContent>
-                    Are you sure to delete this fucker
+                    Confirm Deletion
                 </ModalContent>
                 <ModalFooter>
                     <ConfirmButton onClick={removeEmployee} disabled={state.isLoading_action}> {state.isLoading_action ? <p>Loading</p> : <p>Yes</p>} </ConfirmButton>
