@@ -53,9 +53,11 @@ export const ModalShadow = styled.div`
 `;
 export const ModalBanner = styled.div`
   margin-bottom: 20px;
-  background-color: blue;
+  background-color: purple;
   color: white;
   padding: 20px;
+  border-radius: 10px 10px 0px 0px;
+  text-align: center
 `;
 export const Input = styled.input`
   width: 90%;

@@ -1,24 +1,24 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EMP } from '../../constants';
-import { ModalContent, ModalShadow, Modal, ModalFooter, ConfirmButton} from "./styles";
+import { ModalContent, ModalShadow, Modal, ModalFooter, ConfirmButton, ModalBanner } from "./styles";
 
 
-const DialogContainer:React.FC<{
-    setOpen: (data: boolean)=> void,
+const DialogContainer: React.FC<{
+    setOpen: (data: boolean) => void,
     id: string
-}> = ({ setOpen, id}) => {
+}> = ({ setOpen, id }) => {
     const dispatch = useDispatch();
     const state = useSelector<initialState, initialState>(state => state)
     function close() {
         setOpen(false);
     }
-    const handleFinish = ()=>{
+    const handleFinish = () => {
         close()
         window.location.reload()
     }
-    const removeEmployee = async ()=>{
-        dispatch({type: EMP.DELETE, payload: id})
+    const removeEmployee = async () => {
+        dispatch({ type: EMP.DELETE, payload: id })
     }
 
     return (
@@ -26,16 +26,17 @@ const DialogContainer:React.FC<{
             {state.isDone_action && handleFinish()}
             <ModalShadow onClick={close} />
             <Modal>
+                <ModalBanner>Remove Employee</ModalBanner>
                 <ModalContent>
-                    Confirm Deletion
+                    Are you sure you want to delete this Employee?
                 </ModalContent>
                 <ModalFooter>
                     <ConfirmButton onClick={removeEmployee} disabled={state.isLoading_action}> {state.isLoading_action ? <p>Loading</p> : state.isError_action ? <p>Try again</p> : <p>Yes</p>} </ConfirmButton>
-                    <ConfirmButton onClick={close}  disabled={state.isLoading_action} color="blue"> cancel </ConfirmButton>
+                    <ConfirmButton onClick={close} disabled={state.isLoading_action} color="blue"> cancel </ConfirmButton>
                 </ModalFooter>
             </Modal>
         </>
     );
 }
 
-export {DialogContainer}
+export { DialogContainer }

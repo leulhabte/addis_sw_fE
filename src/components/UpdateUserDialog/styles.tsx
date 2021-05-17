@@ -57,6 +57,8 @@ export const ModalBanner = styled.div`
   background-color: blue;
   color: white;
   padding: 20px;
+  border-radius: 10px 10px 0px 0px;
+  text-align: center
 `;
 export const Input = styled.input`
   width: 90%;

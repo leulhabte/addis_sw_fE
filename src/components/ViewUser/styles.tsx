@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Modal = styled.div`
-  max-width: 500px;
+  max-width: auto;
   background-color: white;
   position: fixed;
-  top: 230px;
+  top: 200px;
   z-index: 5;
   max-height: calc(100% - 200px);
-  left: calc(55% - 250px);
+  left: calc(55% - 340px);
   display: flex;
   border-radius: 10px;
   flex-direction: column;
@@ -21,25 +21,7 @@ export const ModalContent = styled.div`
   min-height: 20px;
   padding: 10px 40px;
 `;
-export const ModalFooter = styled.div`
-  height: 40px;
-  display: flex;
-  justify-content: flex-end;
-  align-item: center;
-`;
-export const ConfirmButton = styled.button`
-    color: white;
-    background-color: ${({ color }) => color || "red"};
-    border: none;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px -3px #ccc;
-    &:hover {
-        background-color: darkgreen;
-    };
-    width: 20%;
-    height: 30px;
-    margin: 0px 4px
-`;
+
 export const ModalShadow = styled.div`
   position: fixed;
   height: 100%;
@@ -53,7 +35,7 @@ export const ModalShadow = styled.div`
 
 export const ModalBanner = styled.div`
   margin-bottom: 20px;
-  background-color: red;
+  background-color: green;
   color: white;
   padding: 20px;
   border-radius: 10px 10px 0px 0px;

@@ -39,7 +39,7 @@ const ModalContainer: React.FC<{
             {state.isDone_action && handlefinish()}
             <ModalShadow onClick={close} />
             <Modal>
-                <ModalBanner>Add Employee</ModalBanner>
+                <ModalBanner>Update Employee</ModalBanner>
                 <ModalContent>
                     <form onSubmit={handleSubmit} id="my-form">
                         <Input

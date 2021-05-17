@@ -1,5 +1,6 @@
 import { EMP } from "../../constants";
 
+// action type
 export type ActionTypes = 
    | {type: typeof EMP.IS_LOADING; payload: boolean}
    | {type: typeof EMP.IS_ERROR; payload: boolean}

@@ -35,7 +35,3 @@ type payload = {
         value: boolean
     }
 }
-
-type String = string
-
-// type DispatchType = (args: payload) => payload

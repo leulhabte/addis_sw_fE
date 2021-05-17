@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { DialogContainer } from "../Dialog";
 import { ModalContainer } from "../UpdateUserDialog";
-import { Box, Card, Button, Title, Typography } from "./styles";
+import { ViewContainer } from "../ViewUser";
+import { Box, Button, Title, Typography, Paper, Row } from "./styles";
 
 const Employees: React.FC<{
     name: string;
@@ -17,35 +18,33 @@ const Employees: React.FC<{
     id
 }) => {
         const [openDialog, setOpenDialog] = useState(false);
+        const [openViewUser, setOpenViewUser] = useState(false);
         const [open, setOpen] = useState(false);
         return (
             <div>
-                <Card>
-                    <Box>
-                        <Title>Name</Title>
-                        <Typography>{name}</Typography>
-                    </Box>
-                    <Box>
-                        <Title>Date of birth</Title>
-                        <Typography>{dateofbirth}</Typography>
-                    </Box>
-                    <Box>
-                        <Title>Gender</Title>
-                        <Typography>{gender}</Typography>
-                    </Box>
-                    <Box>
-                        <Title>Salary</Title>
-                        <Typography>{salary}</Typography>
-                    </Box>
-                    <Box property="flex-start">
-                        <Button onClick={() => setOpen(true)}>Update</Button>
-                        <Button color="red" onClick={() => setOpenDialog(true)}>Delete</Button>
-                    </Box>
-                </Card>
+                <Paper>
+                    <Row>
+                        <Title>Name {<Typography>{name}</Typography>}</Title>
+                        <Box>
+                            <Button color="green" onClick={() => setOpenViewUser(true)}>View</Button>
+                            <Button onClick={() => setOpen(true)}>Update</Button>
+                            <Button color="red" onClick={() => setOpenDialog(true)}>Delete</Button>
+                        </Box>
+                    </Row>
+                </Paper>
                 {openDialog && (
                     <DialogContainer
                         setOpen={setOpenDialog}
                         id={id}
+                    />
+                )}
+                {openViewUser && (
+                    <ViewContainer
+                        name={name}
+                        dateofbirth={dateofbirth}
+                        gender={gender}
+                        salary={salary}
+                        setOpen={setOpenViewUser}
                     />
                 )}
                 {open && (

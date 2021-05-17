@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {ModalContainer} from "../CreateUserDialog";
 import { Container, Logo, Menu, MenuItem } from './styles';
 import { EMP } from '../../constants';
 
 const Navbar: React.FC = () => {
     const [open, setOpen] = useState(false);
+    const state = useSelector<initialState, initialState>((state: initialState) => state)
     
     const dispatch = useDispatch();
     useEffect(() => {
@@ -17,9 +18,9 @@ const Navbar: React.FC = () => {
     return (
         <>
             <Container>
-                <Logo>Addis software</Logo>
+                <Logo>Addis sw Test Project</Logo>
                 <Menu>
-                    <MenuItem onClick={()=>setOpen(true)}>Add Employee</MenuItem>
+                    {state.isDone && <MenuItem onClick={()=>setOpen(true)}>Add Employee</MenuItem>}
                 </Menu>
             </Container>
             {open && (

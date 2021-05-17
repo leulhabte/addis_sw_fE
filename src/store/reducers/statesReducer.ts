@@ -11,7 +11,7 @@ const init: initialState = {
     isDone_action: false
 }
 
-export const loadReducer = (state: initialState = init, action: ActionTypes): initialState => {
+export const appReducer = (state: initialState = init, action: ActionTypes): initialState => {
     switch (action.type) {
         case EMP.IS_LOADING:
             return {
