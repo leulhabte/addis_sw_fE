@@ -1,7 +1,7 @@
 import { call, put, SagaReturnType, takeLatest, all, fork } from 'redux-saga/effects'
 import { EMP } from '../../constants'
 import { fetchEmployee, saveData, removeEmployee, updateEmployee } from "../../api";
-import { setData, setLoading, setError, setDone, ActionTypes, setDone_action, setLoading_action, setError_action } from "../action";
+import { setData, setLoading, setError, ActionTypes, setDone_action, setLoading_action, setError_action } from "../action";
 
 function* handleGetUser(){
     try{

@@ -6,7 +6,6 @@ import { ModalContent, ModalShadow, ModalBanner, Input, Modal, ModalFooter, Conf
 
 const ModalContainer: React.FC<{ setOpen: (data: boolean) => void }> = ({ setOpen }) => {
     const state = useSelector<initialState, initialState>((state: initialState) => state)
-    const [loading, setloading] = useState(false)
     const dispatch = useDispatch();
 
     const [userData, setUserdata] = useState<IPopuate>({
@@ -27,7 +26,6 @@ const ModalContainer: React.FC<{ setOpen: (data: boolean) => void }> = ({ setOpe
 
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        setloading(true)
         dispatch({type: EMP.ADD, payload: {...userData}})
     }
 
