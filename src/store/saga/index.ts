@@ -1,7 +1,7 @@
 import { call, put, SagaReturnType, takeLatest, all, fork } from 'redux-saga/effects'
 import { EMP } from '../../constants'
 import { fetchEmployee, saveData, removeEmployee, updateEmployee } from "../../api";
-import { setData, setLoading, setError, setDone, ActionTypes, setDone_action, setLoading_action } from "../action";
+import { setData, setLoading, setError, setDone, ActionTypes, setDone_action, setLoading_action, setError_action } from "../action";
 
 function* handleGetUser(){
     try{
@@ -18,35 +18,42 @@ function* handleGetUser(){
 
 function* handleAddUser(action: ActionTypes){
     try{
-        yield put(setError(false))
+        yield put(setError_action(false))
+        yield put(setLoading_action(true))
         yield call(saveData, action)
-        yield put(setDone(true))
+        yield put(setLoading_action(false))
+        yield put(setDone_action(true))
     }catch(ex){
-        yield put(setError(true))
+        yield put(setLoading_action(false))
+        yield put(setError_action(true))
     }
 }
 
 
 function* handleRemoveUser(action: ActionTypes){
     try{
+        yield put(setError_action(false))
         yield put(setLoading_action(true))
         yield call(removeEmployee, action)
-        yield put(setLoading_action(true))
+        yield put(setLoading_action(false))
         yield put(setDone_action(true))
     }catch(ex){
-        console.log(ex)
         yield put(setLoading_action(false))
+        yield put(setError_action(true))
     }
 }
 
 function* handleUpdateUser(action: ActionTypes){
     try{
         const userFullData = action.payload as IEmployee
+        yield put(setError_action(false))
         yield put(setLoading_action(true))
         yield call(updateEmployee, userFullData)
+        yield put(setLoading_action(false))
         yield put(setDone_action(true))
     }catch(ex){
         yield put(setLoading_action(false))
+        yield put(setError_action(true))
     }
 }
 

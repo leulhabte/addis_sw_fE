@@ -12,7 +12,7 @@ export default function GridContainer() {
     return (
         <>
             {state.isLoading && 
-            <Box><Oval scale={5} color="red" /></Box>
+            <Box><Oval scale={5} /></Box>
             }
             {state.isError && <Box><Button onClick={()=> dispatch({type: EMP.GET}) }>Retry</Button></Box>}
             <Grid>

@@ -72,7 +72,7 @@ const ModalContainer: React.FC<{
                     </form>
                 </ModalContent>
                 <ModalFooter>
-                    <ConfirmButton type="submit" form="my-form" disabled={state.isLoading_action}> {state.isLoading_action ? <p>Loading...</p> : <p>Update</p>} </ConfirmButton>
+                    <ConfirmButton type="submit" form="my-form" disabled={state.isLoading_action}> {state.isLoading_action ? <p>Loading...</p> : state.isError_action ? <p>Try again</p> : <p>Update</p>} </ConfirmButton>
                 </ModalFooter>
             </Modal>
         </>

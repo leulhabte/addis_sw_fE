@@ -33,7 +33,7 @@ const ModalContainer: React.FC<{ setOpen: (data: boolean) => void }> = ({ setOpe
 
     return (
         <>
-            {state.isDone && handlefinish()}
+            {state.isDone_action && handlefinish()}
             <ModalShadow onClick={close} />
             <Modal>
                 <ModalBanner>Add Employee</ModalBanner>
@@ -66,7 +66,7 @@ const ModalContainer: React.FC<{ setOpen: (data: boolean) => void }> = ({ setOpe
                     </form>
                 </ModalContent>
                 <ModalFooter>
-                    <ConfirmButton type="submit" disabled={loading} form="my-form"> {loading ? <p>Loading</p> : state.isError ? <p>Try again</p> : <p>Submit</p>} </ConfirmButton>
+                    <ConfirmButton type="submit" disabled={state.isLoading_action} form="my-form"> {state.isLoading_action ? <p>Loading</p> : state.isError_action ? <p>Try again</p> : <p>Submit</p>} </ConfirmButton>
                 </ModalFooter>
             </Modal>
         </>

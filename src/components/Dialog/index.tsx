@@ -30,7 +30,7 @@ const DialogContainer:React.FC<{
                     Confirm Deletion
                 </ModalContent>
                 <ModalFooter>
-                    <ConfirmButton onClick={removeEmployee} disabled={state.isLoading_action}> {state.isLoading_action ? <p>Loading</p> : <p>Yes</p>} </ConfirmButton>
+                    <ConfirmButton onClick={removeEmployee} disabled={state.isLoading_action}> {state.isLoading_action ? <p>Loading</p> : state.isError_action ? <p>Try again</p> : <p>Yes</p>} </ConfirmButton>
                     <ConfirmButton onClick={close}  disabled={state.isLoading_action} color="blue"> cancel </ConfirmButton>
                 </ModalFooter>
             </Modal>
