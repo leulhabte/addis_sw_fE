@@ -4,13 +4,11 @@ export const Grid = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  // flex-wrap: wrap;
   height: auto;
   width: 100%:
   padding: 0;
   margin: 0;
   color: #88888;
-  // box-shadow: 3px 3px 5px 0px #ccc;
   @media (max-width: 768px) {
     justify-content: center;
 };

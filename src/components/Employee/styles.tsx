@@ -5,7 +5,6 @@ export const Card = styled.div`
     flex-direction: column;
     padding: 10px;
     margin: 10px;
-    // box-shadow: 3px 3px 5px -3px #ccc;
     border-radius: 5px;
     width: auto;
     @media (min-width: 992px) {
@@ -23,12 +22,10 @@ export const Paper = styled.div`
     box-shadow: 3px 3px 5px -3px #ccc;
     border-radius: 5px;
     width: 100%;
-    // @media (min-width: 992px) {
-    //     width: 470px;
-    // };
-    // @media (max-width: 768px) {
-    //     width: 350px;
-    // };
+    &:hover {
+        transform: scale(1.06);
+        transition: transform 330ms ease-in-out;
+    };
 `
 export const Title = styled.p`
     font-size: 16px;
