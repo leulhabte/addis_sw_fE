@@ -11,7 +11,7 @@ const ModalContainer: React.FC<{
     gender: string;
     salary: string;
     _id: string; }> = ({ setOpen, name, dateofbirth, gender, salary, _id }) => {
-    const [userData, setUserdata] = useState({
+    const [userData, setUserdata] = useState<IPopuate>({
         name,
         dateOfBirth: dateofbirth,
         gender,
@@ -47,16 +47,16 @@ const ModalContainer: React.FC<{
                             type="text"
                             required
                             defaultValue={name}
-                            onChange={e => setUserdata({ ...userData, name: e.target.value })}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => setUserdata({ ...userData, name: e.currentTarget.value })}
                         />
                         <Input
                             placeholder="Date of Birth"
                             type="date"
                             required
                             defaultValue={dateofbirth}
-                            onChange={e => setUserdata({ ...userData, dateOfBirth: e.target.value })}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => setUserdata({ ...userData, dateOfBirth: e.currentTarget.value })}
                         />
-                        <Select name="cars" id="cars" defaultValue={gender} onChange={e => setUserdata({ ...userData, gender: e.target.value })}>
+                        <Select name="cars" id="cars" defaultValue={gender} onChange={(e: React.FormEvent<HTMLSelectElement>) => setUserdata({ ...userData, gender: e.currentTarget.value })}>
                             <Optgroup label="Gener">
                                 <Option value="Male">Male</Option>
                                 <Option value="Female">Female</Option>
@@ -67,7 +67,7 @@ const ModalContainer: React.FC<{
                             type="number"
                             required
                             defaultValue={salary}
-                            onChange={e => setUserdata({ ...userData, salary: e.target.value })}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => setUserdata({ ...userData, salary: e.currentTarget.value })}
                         />
                     </form>
                 </ModalContent>

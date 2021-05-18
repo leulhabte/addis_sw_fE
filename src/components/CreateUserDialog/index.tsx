@@ -41,15 +41,15 @@ const ModalContainer: React.FC<{ setOpen: (data: boolean) => void }> = ({ setOpe
                             placeholder="Name"
                             type="text"
                             required
-                            onChange={e => setUserdata({ ...userData, name: e.target.value })}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => setUserdata({ ...userData, name: e.currentTarget.value })}
                         />
                         <Input
                             placeholder="Date of Birth"
                             type="date"
                             required
-                            onChange={e => setUserdata({ ...userData, dateOfBirth: e.target.value })}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => setUserdata({ ...userData, dateOfBirth: e.currentTarget.value })}
                         />
-                        <Select name="cars" id="cars" onChange={e => setUserdata({ ...userData, gender: e.target.value })}>
+                        <Select name="cars" id="cars" onChange={(e: React.FormEvent<HTMLSelectElement>) => setUserdata({ ...userData, gender: e.currentTarget.value })}>
                             <Optgroup label="Gener">
                                 <Option value="Male">Male</Option>
                                 <Option value="Female">Female</Option>
@@ -59,7 +59,7 @@ const ModalContainer: React.FC<{ setOpen: (data: boolean) => void }> = ({ setOpe
                             placeholder="salary"
                             type="number"
                             required
-                            onChange={e => setUserdata({ ...userData, salary: e.target.value })}
+                            onChange={(e: React.FormEvent<HTMLInputElement>) => setUserdata({ ...userData, salary: e.currentTarget.value })}
                         />
                     </form>
                 </ModalContent>
